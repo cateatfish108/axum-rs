@@ -39,9 +39,9 @@ pub async fn admin_login(
         state.hcap_cfg.secret_key.clone(),
     )
     .await?;
-    if !is_valid {
-        return Err(AppError::auth_error("人机验证失败"));
-    }
+    // if !is_valid {
+    //     return Err(AppError::auth_error("人机验证失败"));
+    // }
     let client = get_client(&state, handler_name).await?;
     let login_admin = admin::find(&client, &login.username)
         .await
